@@ -11,3 +11,4 @@ plugins {
 
 rootProject.name = "virtual-threads"
 include("server")
+include("client")

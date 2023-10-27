@@ -1,4 +1,4 @@
-package org.example.virtualthreads
+package org.example.virtualthreads.server
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

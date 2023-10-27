@@ -5,8 +5,10 @@ plugins {
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
@@ -23,6 +25,8 @@ kotlin {
     }
 }
 
-tasks.jar {
-    manifest.attributes("Main-Class" to  "org.example.virtualthreads.MainKt")
+subprojects {
+    apply {
+        plugin("kotlin")
+    }
 }

@@ -29,4 +29,13 @@ subprojects {
     apply {
         plugin("kotlin")
     }
+
+    tasks.compileJava {
+        sourceCompatibility = "21"
+        targetCompatibility = "21"
+    }
+
+    tasks.compileKotlin {
+        kotlinOptions.jvmTarget = "21"
+    }
 }

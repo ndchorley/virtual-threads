@@ -1,6 +1,3 @@
-import org.gradle.internal.jvm.Jvm
-import org.jetbrains.kotlin.com.intellij.lang.java.JavaLanguage
-
 plugins {
     kotlin("jvm") version "1.9.20-RC2"
 }

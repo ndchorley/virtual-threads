@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.20-RC2"
+    id("com.github.johnrengelman.shadow").version("8.1.1")
 }
 
 group = "org.example"
@@ -12,7 +13,7 @@ allprojects {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.20-RC2")
 }
 
 tasks.test {
@@ -28,6 +29,7 @@ kotlin {
 subprojects {
     apply {
         plugin("kotlin")
+        plugin("com.github.johnrengelman.shadow")
     }
 
     tasks.compileJava {

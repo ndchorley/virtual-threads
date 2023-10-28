@@ -20,9 +20,11 @@ tasks.test {
     useJUnitPlatform()
 }
 
+val jdkVersion = "21"
+
 kotlin {
     jvmToolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(jdkVersion)
     }
 }
 
@@ -33,11 +35,11 @@ subprojects {
     }
 
     tasks.compileJava {
-        sourceCompatibility = "21"
-        targetCompatibility = "21"
+        sourceCompatibility = jdkVersion
+        targetCompatibility = jdkVersion
     }
 
     tasks.compileKotlin {
-        kotlinOptions.jvmTarget = "21"
+        kotlinOptions.jvmTarget = jdkVersion
     }
 }

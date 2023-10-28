@@ -12,7 +12,7 @@ class PlatformThreadServer(val port: Int) {
 
         val clientSocket = socket.accept()
 
-       val reader = InputStreamReader(clientSocket.getInputStream())
+        val reader = InputStreamReader(clientSocket.getInputStream())
 
         println("Received: ${reader.readText()}")
 

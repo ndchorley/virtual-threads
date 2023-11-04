@@ -7,8 +7,14 @@ class PlatformThreadServer(val port: Int) {
 
     fun start() {
         println("Listening on port: $port")
+        println()
 
-        val task = ClientHandlingTask(socket.accept())
-        Thread.ofPlatform().start(task)
+        while (true) {
+            val clientSocket = socket.accept()
+            println("Connected to client on port ${clientSocket.port}")
+
+            val task = ClientHandlingTask(clientSocket)
+            Thread.ofPlatform().start(task)
+        }
     }
 }

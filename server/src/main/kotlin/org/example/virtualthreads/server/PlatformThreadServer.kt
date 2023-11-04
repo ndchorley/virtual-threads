@@ -16,15 +16,16 @@ class PlatformThreadServer(val port: Int) {
         val message = clientSocket.readMessage()
         println("Received: $message")
 
-        clientSocket.sendResponse("Bye!")
+        clientSocket.sendMessage("Bye!")
 
         clientSocket.close()
         socket.close()
     }
 
-    private fun Socket.sendResponse(response: String) {
+    private fun Socket.sendMessage(message: String) {
         val writer = PrintWriter(getOutputStream(), true)
-        writer.println(response)
+        
+        writer.println(message)
     }
 
     private fun Socket.readMessage(): String? {

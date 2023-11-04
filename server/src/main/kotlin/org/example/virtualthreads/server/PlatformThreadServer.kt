@@ -15,9 +15,9 @@ class PlatformThreadServer(val port: Int) {
 
         println("Received: ${reader.readText()}")
 
-        val writer = PrintWriter(clientSocket.getOutputStream())
+        val writer = PrintWriter(clientSocket.getOutputStream(), true)
 
-        writer.write("Bye!")
+        writer.println("Bye!")
 
         clientSocket.close()
         socket.close()

@@ -1,10 +1,8 @@
 package org.example.virtualthreads.server
 
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.io.PrintWriter
+import org.example.virtualthreads.sockets.readMessage
+import org.example.virtualthreads.sockets.sendMessage
 import java.net.ServerSocket
-import java.net.Socket
 
 class PlatformThreadServer(val port: Int) {
     private val socket = ServerSocket(port)
@@ -20,17 +18,5 @@ class PlatformThreadServer(val port: Int) {
 
         clientSocket.close()
         socket.close()
-    }
-
-    private fun Socket.sendMessage(message: String) {
-        val writer = PrintWriter(getOutputStream(), true)
-        
-        writer.println(message)
-    }
-
-    private fun Socket.readMessage(): String? {
-        val reader = BufferedReader(InputStreamReader(getInputStream()))
-
-        return reader.readLine()
     }
 }

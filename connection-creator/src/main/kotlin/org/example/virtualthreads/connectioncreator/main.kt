@@ -1,5 +1,7 @@
 package org.example.virtualthreads.connectioncreator
 
 fun main() {
-    Client().sendMessageToServerAndDisplayResponse()
+    (1 .. 10).forEach {
+        Client().sendMessageToServerAndDisplayResponse()
+    }
 }

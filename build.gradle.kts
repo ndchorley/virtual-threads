@@ -46,6 +46,7 @@ subprojects {
     dependencies {
         implementation(platform("org.http4k:http4k-bom:5.9.0.0"))
         implementation("org.http4k:http4k-core")
+        implementation("org.http4k:http4k-client-apache")
         implementation("org.http4k:http4k-server-jetty")
         implementation("org.http4k:http4k-metrics-micrometer")
         implementation("io.micrometer:micrometer-registry-prometheus:1.11.5")

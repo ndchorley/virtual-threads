@@ -42,4 +42,10 @@ subprojects {
     tasks.compileKotlin {
         kotlinOptions.jvmTarget = jdkVersion
     }
+
+    dependencies {
+        implementation(platform("org.http4k:http4k-bom:5.9.0.0"))
+        implementation("org.http4k:http4k-core")
+        implementation("org.http4k:http4k-server-jetty")
+    }
 }

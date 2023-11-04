@@ -31,6 +31,7 @@ kotlin {
 subprojects {
     apply {
         plugin("kotlin")
+        plugin("application")
         plugin("com.github.johnrengelman.shadow")
     }
 

@@ -7,9 +7,8 @@ class Client {
     fun sendMessageToServerAndDisplayResponse() {
         val socket = Socket("127.0.0.1", 8080)
 
-        val writer = PrintWriter(socket.getOutputStream())
+        val writer = PrintWriter(socket.getOutputStream(), true)
 
-        writer.print("Hello")
-        writer.flush()
+        writer.println("Hello")
     }
 }

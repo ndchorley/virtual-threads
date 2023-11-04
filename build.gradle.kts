@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.20-RC2"
+    kotlin("jvm") version "1.9.20"
     id("com.github.johnrengelman.shadow").version("8.1.1")
 }
 
@@ -13,7 +13,7 @@ allprojects {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.20-RC2")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.20")
 }
 
 tasks.test {

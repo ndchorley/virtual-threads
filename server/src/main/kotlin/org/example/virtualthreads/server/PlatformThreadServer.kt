@@ -4,6 +4,7 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.PrintWriter
 import java.net.ServerSocket
+import java.net.Socket
 
 class PlatformThreadServer(val port: Int) {
     private val socket = ServerSocket(port)
@@ -12,9 +13,8 @@ class PlatformThreadServer(val port: Int) {
 
         val clientSocket = socket.accept()
 
-        val reader = BufferedReader(InputStreamReader(clientSocket.getInputStream()))
-
-        println("Received: ${reader.readLine()}")
+        val message = clientSocket.readMessage()
+        println("Received: $message")
 
         val writer = PrintWriter(clientSocket.getOutputStream(), true)
 
@@ -22,5 +22,11 @@ class PlatformThreadServer(val port: Int) {
 
         clientSocket.close()
         socket.close()
+    }
+
+    private fun Socket.readMessage(): String? {
+        val reader = BufferedReader(InputStreamReader(getInputStream()))
+
+        return reader.readLine()
     }
 }

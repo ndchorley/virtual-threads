@@ -13,3 +13,4 @@ rootProject.name = "virtual-threads"
 include("server")
 include("connection-creator")
 include("shared")
+include("waiting-webapp")

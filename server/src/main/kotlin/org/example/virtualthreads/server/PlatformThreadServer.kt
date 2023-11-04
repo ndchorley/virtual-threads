@@ -3,8 +3,8 @@ package org.example.virtualthreads.server
 import java.net.ServerSocket
 
 class PlatformThreadServer(
-    val clientHandlingTaskFactory: ClientHandlingTaskFactory,
-    val port: Int
+    private val clientHandlingTaskFactory: ClientHandlingTaskFactory,
+    private val port: Int
 ) {
     private val socket = ServerSocket(port)
 

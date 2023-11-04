@@ -6,5 +6,5 @@ dependencies {
 }
 
 application {
-    mainClass = "org.example.virtualthreads.client.MainKt"
+    mainClass = "org.example.virtualthreads.connectioncreator.MainKt"
 }

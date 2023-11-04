@@ -1,4 +1,4 @@
-package org.example.virtualthreads.client
+package org.example.virtualthreads.connectioncreator
 
 import org.example.virtualthreads.sockets.readMessage
 import org.example.virtualthreads.sockets.sendMessage

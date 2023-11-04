@@ -1,4 +1,4 @@
-package org.example.virtualthreads.client
+package org.example.virtualthreads.connectioncreator
 
 fun main() {
     Client().sendMessageToServerAndDisplayResponse()

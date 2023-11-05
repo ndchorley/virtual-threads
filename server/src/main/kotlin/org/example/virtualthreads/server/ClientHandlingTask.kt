@@ -6,28 +6,22 @@ import org.http4k.client.ApacheClient
 import org.http4k.core.Method
 import org.http4k.core.Request
 import java.net.Socket
-import java.util.concurrent.atomic.AtomicInteger
 import kotlin.random.Random
 import kotlin.random.nextLong
 
-class ClientHandlingTask(
-    private val clientSocket: Socket,
-    private val numberOfTasksGauge: AtomicInteger
-) : Runnable {
+class ClientHandlingTask(private val clientSocket: Socket) : Runnable {
     private val httpClient = ApacheClient()
 
     override fun run() {
-        numberOfTasksGauge.incrementThenDecrementWhenFinished {
-            val message = clientSocket.readMessage()
-            println("Received: $message")
+        val message = clientSocket.readMessage()
+        println("Received: $message")
 
-            val durationInMillis = Random.Default.nextLong(LongRange(0, 10000))
-            sendRequestToWebAppWaitingFor(durationInMillis)
+        val durationInMillis = Random.Default.nextLong(LongRange(0, 10000))
+        sendRequestToWebAppWaitingFor(durationInMillis)
 
-            clientSocket.sendMessage("Bye!")
+        clientSocket.sendMessage("Bye!")
 
-            clientSocket.close()
-        }
+        clientSocket.close()
     }
 
     private fun sendRequestToWebAppWaitingFor(durationInMillis: Long) =
@@ -35,10 +29,3 @@ class ClientHandlingTask(
 
 }
 
-private fun AtomicInteger.incrementThenDecrementWhenFinished(block: () -> Unit) {
-    incrementAndGet()
-
-    block()
-
-    decrementAndGet()
-}

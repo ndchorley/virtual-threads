@@ -16,7 +16,7 @@ class ClientHandlingTask(private val clientSocket: Socket) : Runnable {
         val message = clientSocket.readMessage()
         println("Received: $message")
 
-        val durationInMillis = Random.Default.nextLong(LongRange(0, 10000))
+        val durationInMillis = Random.Default.nextLong(LongRange(0, 1500))
         sendRequestToWebAppWaitingFor(durationInMillis)
 
         clientSocket.sendMessage("Bye!")
